@@ -146,9 +146,14 @@ const updateData = async (req, res) => {
   }
 };
 
-// @route   DELETE api/users/update
-// @description   Update User Data
+// @route   DELETE api/users
+// @description   Delete User
 // @access  Private
 
+const deleteUser = async (req, res) => {
+  let user = await User.findByIdAndRemove(req.user.id)
+  res.send("account deleted")
+}
 
-module.exports = { createUser, login, userData, updateData };
+
+module.exports = { createUser, login, userData, updateData, deleteUser };
