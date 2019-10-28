@@ -115,7 +115,7 @@ const userData = async (req, res) => {
   }
 };
 
-// @route   POST api/users/update
+// @route   PUT api/users
 // @description   Update User Data
 // @access  Private
 
@@ -145,5 +145,10 @@ const updateData = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+
+// @route   DELETE api/users/update
+// @description   Update User Data
+// @access  Private
+
 
 module.exports = { createUser, login, userData, updateData };

@@ -7,7 +7,7 @@ const {createUser , login, userData, updateData} = require('../../controller/use
 router.post('/', createUser)
 router.post('/login', login)
 router.get('/',auth, userData)
-router.put('/update',auth, updateData)
+router.put('/',auth, updateData)
 
 
 module.exports = router;
