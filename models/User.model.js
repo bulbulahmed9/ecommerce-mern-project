@@ -13,21 +13,19 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   password: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   },
   updated: Date,
   created: {
-      type: Date,
-      default: Date.now()
+    type: Date,
+    default: Date.now()
   },
   seller: {
-      type: Boolean,
-      default: false
+    type: Boolean,
+    default: false
   },
-  stripeSeller: {},
-  stripeCustomer: {},
-  order: []
+  orders: [{ name: String }]
 });
 
 module.exports = User = mongoose.model("User", UserSchema);
