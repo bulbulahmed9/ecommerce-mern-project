@@ -1,6 +1,9 @@
-const Product = require('../../models/Product.model');
-const router = require('express').Router();
-const { addProduct, getProduct } = require('../../controller/product.controller')
+const Product = require("../../models/Product.model");
+const router = require("express").Router();
+const {
+  addProduct,
+  getProduct
+} = require("../../controller/product.controller");
 
 // @route   POST api/products
 // @description   Add product
@@ -8,13 +11,12 @@ const { addProduct, getProduct } = require('../../controller/product.controller'
 
 // uncomment below route to add product to database
 
-// router.post('/', addProduct)
-
+router.post('/', addProduct)
 
 // @route   GET api/products
 // @description   get product
 // @access  Public
 
-router.get('/', getProduct)
+router.get("/", getProduct);
 
-module.exports = router
+module.exports = router;

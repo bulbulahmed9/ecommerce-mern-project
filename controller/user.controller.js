@@ -6,11 +6,9 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 const validate = require("validator");
 
-// @route   POST api/users
-// @description   Register User
-// @access  public
+// sign up
 
-const createUser = async (req, res) => {
+const signUp = async (req, res) => {
   let { name, email, password } = req.body;
   let validate = regValidator({ name, email, password });
   if (!validate.isValid) {
@@ -56,9 +54,7 @@ const createUser = async (req, res) => {
   }
 };
 
-// @route   GET api/users
-// @description  Login User
-// @access  public
+// login
 
 const login = async (req, res) => {
   let { email, password } = req.body;
@@ -101,11 +97,9 @@ const login = async (req, res) => {
   }
 };
 
-// @route   GET api/users
-// @description   Load User Data
-// @access  Private
+// get user profile
 
-const userData = async (req, res) => {
+const userProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
     res.json(user);
@@ -115,11 +109,9 @@ const userData = async (req, res) => {
   }
 };
 
-// @route   PUT api/users
-// @description   Update User Data
-// @access  Private
-
-const updateData = async (req, res) => {
+// update profile
+// when first user created then it works, not work for 2nd user.
+const updateProfile = async (req, res) => {
   const { name, email } = req.body;
   try {
     const updateData = {};
@@ -131,8 +123,8 @@ const updateData = async (req, res) => {
     }
     if (!email) {
       return res.send("Email is required");
-    } else if(!validate.isEmail(email)){
-      return res.send("Please Provide a valid email")
+    } else if (!validate.isEmail(email)) {
+      return res.send("Please Provide a valid email");
     }
     updateData.email = email;
     console.log(updateData);
@@ -146,14 +138,11 @@ const updateData = async (req, res) => {
   }
 };
 
-// @route   DELETE api/users
-// @description   Delete User
-// @access  Private
+// Delete User
 
 const deleteUser = async (req, res) => {
-  let user = await User.findByIdAndRemove(req.user.id)
-  res.send("account deleted")
-}
+  let user = await User.findByIdAndRemove(req.user.id);
+  res.send("account deleted");
+};
 
-
-module.exports = { createUser, login, userData, updateData, deleteUser };
+module.exports = { signUp, login, userProfile, updateProfile, deleteUser };

@@ -25,7 +25,8 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  orders: [{ name: String }]
+  stripe_seller: {},
+  stripe_customer: {}
 });
 
 module.exports = User = mongoose.model("User", UserSchema);
