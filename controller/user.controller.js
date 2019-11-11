@@ -110,29 +110,18 @@ const userProfile = async (req, res) => {
 };
 
 // update profile
-// when first user created then it works, not work for 2nd user.
 const updateProfile = async (req, res) => {
-  const { name, email } = req.body;
+  const { name } = req.body;
   try {
-    const updateData = {};
-    // updateData.user = req.user.id;
-    if (!name) {
-      return res.send("Name is required");
-    } else {
-      updateData.name = name;
+    let updatedData = {
+      name
     }
-    if (!email) {
-      return res.send("Email is required");
-    } else if (!validate.isEmail(email)) {
-      return res.send("Please Provide a valid email");
-    }
-    updateData.email = email;
-    console.log(updateData);
+    await User.findByIdAndUpdate(req.user.id, {$set: updatedData})
 
-    await User.findOneAndUpdate(req.user.id, { $set: updateData });
-    let updateUser = await User.findById(req.user.id);
-    return res.json(updateUser);
-  } catch (err) {
+    const updatedUser = await User.findById(req.user.id)
+    res.send({ updatedUser })
+  }
+   catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
