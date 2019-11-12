@@ -1,5 +1,5 @@
-const Product = require("../../models/Product.model");
 const router = require("express").Router();
+const Product = require("../../models/Product.model");
 const {
   addProduct,
   getProduct
@@ -11,7 +11,7 @@ const {
 
 // uncomment below route to add product to database
 
-router.post('/', addProduct)
+// router.post('/', addProduct) 
 
 // @route   GET api/products
 // @description   get product

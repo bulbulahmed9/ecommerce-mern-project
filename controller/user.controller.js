@@ -110,6 +110,7 @@ const userProfile = async (req, res) => {
 };
 
 // update profile
+
 const updateProfile = async (req, res) => {
   const { name } = req.body;
   try {
