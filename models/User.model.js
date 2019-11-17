@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    trim: true,
     required: true
   },
   email: {
@@ -16,17 +15,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  updated: Date,
   created: {
     type: Date,
     default: Date.now()
   },
-  seller: {
-    type: Boolean,
-    default: false
-  },
-  stripe_seller: {},
-  stripe_customer: {}
+  orders: []
 });
 
 module.exports = User = mongoose.model("User", UserSchema);

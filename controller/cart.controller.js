@@ -11,7 +11,6 @@ const addCart = async (req, res) => {
     quantity: req.body.quantity
   };
 
-  
   try {
     const cart = await Cart.findOne({ user: user });
     if (cart) {
@@ -28,18 +27,18 @@ const addCart = async (req, res) => {
             $inc: { "items.$.quantity": item.quantity }
           }
         );
-        res.send('Added');
-      }else {
-          cart.items.push(item)
-          await cart.save();
-          res.end();
-      } 
-    } else {
-        Cart.create({
-            user: user,
-            items: [item]
-        })
+        res.send("Added");
+      } else {
+        cart.items.push(item);
+        await cart.save();
         res.end();
+      }
+    } else {
+      Cart.create({
+        user: user,
+        items: [item]
+      });
+      res.end();
     }
   } catch (err) {
     console.error(err.message);
@@ -48,8 +47,51 @@ const addCart = async (req, res) => {
 };
 
 // get from cart
-const getItem = async (req, res) => {};
+const getItem = async (req, res) => {
+  try {
+    const cart = await Cart.findOne({ user: req.user.id }).populate(
+      "items.product"
+    );
+    if (!cart) {
+      return res.send("Null");
+    }
+    res.send(cart);
+  } catch (err) {
+    console.error(err.message);
+    res.send("Server Error");
+  }
+};
+
+// put to cart
+// problem,
+const updateCart = async (req, res) => {
+  try {
+    const cart = await Cart.findById(req.body.cartId);
+    cart.items = cart.items.filter(item => item.id != req.body.itemId);
+    await cart.save();
+    res.end();
+  } catch (err) {
+    console.error(err.message);
+    res.send("Server Error");
+  }
+};
+
+// delete cart
+// problem
+const deleteCart = async (req, res) => {
+  try {
+    await Cart.findByIdAndRemove(req.query.id);
+    res.end();
+  } catch (err) {
+    console.error(err.message);
+    res.send("Server Error");
+  }
+};
+
+
 module.exports = {
   addCart,
-  getItem
+  getItem,
+  updateCart,
+  deleteCart
 };
