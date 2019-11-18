@@ -1,11 +1,11 @@
-import React from 'react'
-
+import React, {Fragment, useEffect} from "react";
+import {getProduct} from '../actions/productAction'
 const Product = () => {
-    return (
-        <div>
-            Product
-        </div>
-    )
-}
+    
 
-export default Product
+    const { name } = this.props.product
+
+return <Fragment>Hello {name}</Fragment>;
+};
+
+export default Product;

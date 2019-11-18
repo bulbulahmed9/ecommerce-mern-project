@@ -11,6 +11,7 @@ import "./App.css";
 import setAuthToken from './utils/setAuthToken'
 import {loadUser } from './actions/authAction'
 import store from './store'
+import { getProduct } from "./actions/productAction";
 
 if(localStorage.token){
   setAuthToken(localStorage.token)
@@ -21,6 +22,8 @@ const App = () => {
   useEffect(() => {
     store.dispatch(loadUser())
   }, [])
+
+  
 
   return (
     <BrowserRouter>
