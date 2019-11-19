@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700|Permanent+Marker&display=swap");
 *,
 *:before,
 *:after {
@@ -7,12 +8,13 @@
 }
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: "Permanent Marker", cursive;
+  font-family: "Oswald", sans-serif;
   color: #384047;
 }
 
 /* form  */
- /*  */
+/*  */
 /*  */
 form {
   width: 300px;
@@ -53,9 +55,10 @@ select {
   margin-bottom: 20px;
 }
 
-button {
-  color: #fff;
-  background-color: #4bc970;
+button,
+.btn {
+  color: #000;
+  background-color: #b2bec3;
   font-size: 18px;
   text-align: center;
   font-style: normal;
@@ -82,12 +85,52 @@ legend {
   }
 }
 
-
 /* Alert */
 
-.alert{
-    font-size: 12px;
-    text-align: center;
-    padding: 0;
-    margin: 0;
+.alert {
+  font-size: 12px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* product */
+
+.title{
+  font-family: "Permanent Marker", cursive;
+  margin-top: 10px;
+  padding-bottom: 15px;
+}
+
+.card {
+  margin-bottom: 15px;
+}
+
+.card img {
+  height: 150px;
+  width: 140px;
+  margin: 15px;
+}
+
+.btn {
+  font-size: 16px;
+  width: 100px;
+  margin-right: 5px;
+}
+.btn:hover{
+  background: #000;
+}
+.addtocart {
+  display: flex;
+}
+
+/* navbar */
+
+.navbar-light .navbar-nav .nav-link {
+  color: #2d3436;
+}
+.navbar-brand{
+  font-size: 35px;
+  margin-left: -15px;
+  font-family: "Permanent Marker", cursive;
 }

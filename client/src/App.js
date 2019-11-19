@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import ProductList from "./components/ProductList";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile"
+import Cart from "./components/Cart"
 
 import "./App.css";
 import setAuthToken from './utils/setAuthToken'
@@ -23,7 +24,9 @@ const App = () => {
     store.dispatch(loadUser())
   }, [])
 
-  
+  useEffect(() => {
+    store.dispatch(getProduct())
+  }, [getProduct])
 
   return (
     <BrowserRouter>
@@ -34,6 +37,7 @@ const App = () => {
           <Route path="/login" component={ Login } />
           <Route path="/register" component={ Register } />
           <Route path="/profile" component={ Profile } />
+          <Route path="/cart" component={ Cart } />
         </Switch>
         <Footer />
       </Fragment>
