@@ -7,6 +7,7 @@ import ProductList from "./components/ProductList";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile"
 import Cart from "./components/Cart"
+import Modal from './components/Modal'
 
 import "./App.css";
 import setAuthToken from './utils/setAuthToken'
@@ -32,6 +33,7 @@ const App = () => {
     <BrowserRouter>
       <Fragment>
         <Navbar />
+        <Modal />
         <Switch>
           <Route exact path="/" component={ ProductList } />
           <Route path="/login" component={ Login } />

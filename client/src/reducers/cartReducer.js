@@ -6,13 +6,14 @@ import {
   ADD_SHIPPING
 } from "../actions/types";
 
+
+
+
 export default function(state = [], action) {
   const selectItemInCart = (state, action) =>
     action !== undefined &&
     state.filter(
       x =>
-        // x.selectedSize === action.selectedSize &&
-        // x.selectedColor === action.selectedColor &&
         x._id === action._id
     )[0];
   const cartWithoutItem = (state, action) =>

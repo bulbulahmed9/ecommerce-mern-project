@@ -22,7 +22,7 @@ const ProductList = ({ getProduct, products, loading }) => {
           <div className="row">
             {products.length > 0 ? (
               products.map((product, index) => (
-                <div key={index} className="col-md-3">
+                <div key={product._id} className="col-md-3">
                   <Product product={product} />
                 </div>
               ))
@@ -33,6 +33,9 @@ const ProductList = ({ getProduct, products, loading }) => {
           </div>
         </Fragment>
       )}
+      {/* <div className="product-modal">
+        Hello{}
+      </div> */}
     </Fragment>
   );
 };

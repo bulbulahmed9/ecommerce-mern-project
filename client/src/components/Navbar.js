@@ -40,7 +40,7 @@ const Navbar = ({ cart }) => {
             </li>
             <li className="nav-item">
               <Link to="/cart" className="nav-link">
-                Cart{cart}
+  Cart {cart.length > 0 && <span>({cart.length})</span>}
               </Link>
             </li>
             <li className="nav-item">
@@ -61,9 +61,12 @@ const Navbar = ({ cart }) => {
   );
 };
 
-Navbar.propTypes = {
-    cart: PropTypes.number,
-}
+// Navbar.propTypes = {
+//     cart: PropTypes.array,
+// }
 
+const mapStateToProps = state => ({
+    cart: state.cartReducer
+})
 
-export default Navbar;
+export default connect(mapStateToProps)(Navbar);

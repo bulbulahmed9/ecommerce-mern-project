@@ -1,11 +1,12 @@
 import React, { Fragment, useEffect } from "react";
 import { addToCart } from "../actions/cartAction";
+import { modalOpen, modalClose } from "../actions/modalAction";
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 
-const Product = ({ product, addToCart,cart }) => {
+const Product = ({ product, addToCart, modalOpen,modalClose, products}) => {
   
   
 
@@ -26,9 +27,12 @@ const Product = ({ product, addToCart,cart }) => {
    {/* <span>{product._id}</span> */}
           <div className="addtocart">
             <Link className="btn btn-primary" to="/details">See details</Link>
-            <button onClick={() => addToCart(product)} className="btn btn-info">Add Cart</button>
-  <p>{cart}</p>
+  <button onClick={() => {
+    addToCart(product)
+    modalOpen(products, product._id)
+    }} className="btn btn-info">add</button>
           </div>
+          {/* <button onClick={() => modalClose(products, product._id)}>close modal</button> */}
         </div>
       </div>
     </Fragment>
@@ -36,11 +40,12 @@ const Product = ({ product, addToCart,cart }) => {
 };
 
 Product.propTypes = {
-  cart: PropTypes.number,
+  cart: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
-  cart : state.cartReducer.length
+  cart : state.cartReducer,
+  products: state.productReducer.product
 })
 
-export default connect(mapStateToProps, { addToCart })(Product);
+export default connect(mapStateToProps, { addToCart, modalOpen, modalClose })(Product);

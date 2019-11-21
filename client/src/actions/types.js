@@ -15,3 +15,6 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const SUB_QUANTITY = 'SUB_QUANTITY';
 export const ADD_QUANTITY = 'ADD_QUANTITY';
 export const ADD_SHIPPING = 'ADD_SHIPPING';
+
+export const MODAL_OPEN = 'MODAL_OPEN';
+export const MODAL_CLOSE = 'MODAL_CLOSE';
