@@ -27,10 +27,10 @@ export default function(state = [], action) {
             ...cartWithoutItem(state, action.item),
             {
               ...selectItemInCart(state, action.item),
-              quantity: selectItemInCart(state, action.item).quantity + 1
+              quantity: selectItemInCart(state, action.item).quantity + 1,
             }
           ] // If Yes: return the cart array without the item to avoid duplicate. Then select the item by lookup the id of action (action.item) to match the id of cart array (state) to increment +1 to its quantity propriety.
-        : [...state, { ...action.item, quantity: 1 }]; // If No: return cart array. Then add object of added item by concatenation, initialize its propriety quantity by 1.
+        : [...state, { ...action.item, quantity: 1,inCart: true }]; // If No: return cart array. Then add object of added item by concatenation, initialize its propriety quantity by 1.
 
     default:
       return state;

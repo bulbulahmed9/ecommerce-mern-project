@@ -106,7 +106,7 @@ legend {
   margin-bottom: 15px;
 }
 
-.card img {
+.card img, .modal-card img {
   height: 150px;
   width: 140px;
   margin: 15px;
@@ -148,4 +148,9 @@ legend {
   align-items: center;
   justify-content: center;
   z-index: 999;
+}
+
+.modal-alert{
+  color: salmon;
+  font-weight: 700;
 }

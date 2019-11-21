@@ -14,6 +14,7 @@ import setAuthToken from './utils/setAuthToken'
 import {loadUser } from './actions/authAction'
 import store from './store'
 import { getProduct } from "./actions/productAction";
+import Alert from "./components/Alert";
 
 if(localStorage.token){
   setAuthToken(localStorage.token)

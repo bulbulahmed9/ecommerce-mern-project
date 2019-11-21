@@ -1,14 +1,13 @@
 import React, { Fragment, useEffect } from "react";
 import { addToCart } from "../actions/cartAction";
 import { modalOpen, modalClose } from "../actions/modalAction";
+import { setAlert } from '../actions/alertAction'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 
-const Product = ({ product, addToCart, modalOpen,modalClose, products}) => {
-  
-  
+const Product = ({ product, addToCart, modalOpen,modalClose, products, cart, setAlert}) => {
 
   return (
     <Fragment>
@@ -30,9 +29,9 @@ const Product = ({ product, addToCart, modalOpen,modalClose, products}) => {
   <button onClick={() => {
     addToCart(product)
     modalOpen(products, product._id)
-    }} className="btn btn-info">add</button>
+    setAlert("Product Added to Cart" , 'success')
+    }} className="btn btn-info">Add to Cart</button>
           </div>
-          {/* <button onClick={() => modalClose(products, product._id)}>close modal</button> */}
         </div>
       </div>
     </Fragment>
@@ -48,4 +47,4 @@ const mapStateToProps = state => ({
   products: state.productReducer.product
 })
 
-export default connect(mapStateToProps, { addToCart, modalOpen, modalClose })(Product);
+export default connect(mapStateToProps, { addToCart, modalOpen, modalClose, setAlert })(Product);
