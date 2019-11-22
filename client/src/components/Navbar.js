@@ -66,7 +66,7 @@ const Navbar = ({ cart }) => {
 // }
 
 const mapStateToProps = state => ({
-    cart: state.cartReducer
+    cart: state.cartReducer.cart
 })
 
 export default connect(mapStateToProps)(Navbar);

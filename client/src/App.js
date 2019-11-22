@@ -6,8 +6,9 @@ import Register from "./components/Register";
 import ProductList from "./components/ProductList";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile"
-import Cart from "./components/Cart"
+import Cart from "./components/cart/Cart"
 import Modal from './components/Modal'
+import Details from './components/cart/details'
 
 import "./App.css";
 import setAuthToken from './utils/setAuthToken'
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/register" component={ Register } />
           <Route path="/profile" component={ Profile } />
           <Route path="/cart" component={ Cart } />
+          <Route path="/details" component={ Details } />
         </Switch>
         <Footer />
       </Fragment>

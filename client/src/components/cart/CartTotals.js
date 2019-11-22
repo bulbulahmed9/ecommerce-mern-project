@@ -1,11 +1,11 @@
 import React from 'react'
 
-const details = () => {
+const CartTotals = () => {
     return (
         <div>
-            details
+            
         </div>
     )
 }
 
-export default details
+export default CartTotals
