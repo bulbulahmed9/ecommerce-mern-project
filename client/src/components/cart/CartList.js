@@ -25,7 +25,7 @@ const CartList = ({ cart, increment ,decrement, product, remove}) => {
                   <span onClick={() => increment(item)} className="quantity">+</span>
                 </div>
                 <div className="col-10 mx-auto col-lg-2 ">
-                  <span className="d-lg-none">product :</span> <span onClick={() => remove(item)} >remove</span>
+                  <span className="d-lg-none">product :</span> <span onClick={() => remove(item)} ><i className="fa fa-trash"  /></span>
                 </div>
                 <div className="col-10 mx-auto col-lg-2 ">
                   <span className="d-lg-none">product :</span>{" "}
