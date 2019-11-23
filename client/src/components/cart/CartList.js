@@ -95,3 +95,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { increment, decrement, remove, clearCart, checkout,loadUser })(
   CartList
 );
+
+//
