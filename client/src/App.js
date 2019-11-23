@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Profile from "./components/Profile"
 import Cart from "./components/cart/Cart"
 import Modal from './components/Modal'
-import Details from './components/cart/details'
+import Details from './components/cart/Details'
 
 import "./App.css";
 import setAuthToken from './utils/setAuthToken'
@@ -25,7 +25,7 @@ const App = () => {
 
   useEffect(() => {
     store.dispatch(loadUser())
-  }, [])
+  }, [loadUser])
 
   useEffect(() => {
     store.dispatch(getProduct())

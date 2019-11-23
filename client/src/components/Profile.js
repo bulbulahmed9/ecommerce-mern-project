@@ -1,9 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import spinner from '../img/spinner.jpg'
+import { loadUser } from '../actions/authAction'
+// import store from '../store'
+// import setAuthToken from "../utils/setAuthToken"
 
-const Profile = ({ user, isAuthenticated, loading }) => {
+
+// if(localStorage.token){
+//   setAuthToken(localStorage.token)
+// }
+
+const Profile = ({ user, isAuthenticated, loading,loadUser,order }) => {
   if (!isAuthenticated && !loading) {
     return <Redirect to="/login" />;
   }
@@ -21,7 +29,19 @@ const Profile = ({ user, isAuthenticated, loading }) => {
               content.
             </p>
             <h4>Your Orders :</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure dolorum ullam ratione optio veniam ipsa ex nam ut. Commodi, labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quo. Eveniet voluptatum, beatae laudantium fugit est voluptates saepe praesentium nesciunt quae accusantium temporibus eligendi repellendus quidem vero minus nisi aliquid.</p>
+            { 
+              user.orders.length > 0  ? user.orders.map(item => 
+                
+                 (
+              <div className="order-details">
+                <h5>{item.name}</h5>
+                <p>Price : {item.price}</p>
+                <p>Quantity : {item.quantity}</p>
+              <p>Order Date : {item.dateCreated}</p>
+              </div>
+              )
+              ) : <p>No Pending Order</p>
+            }
           </div>
         </div>
         </div>
@@ -38,4 +58,4 @@ const mapStateToProps = state => ({
   loading: state.authReducer.loading
 });
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps,{loadUser})(Profile);

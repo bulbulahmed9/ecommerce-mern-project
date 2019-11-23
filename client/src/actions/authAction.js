@@ -27,7 +27,7 @@ export const loadUser = () => async dispatch => {
       type: AUTH_ERROR
     });
   }
-};
+}; 
 
 // Register User
 export const register = ({ name, email, password }) => async dispatch => {

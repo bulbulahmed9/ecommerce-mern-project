@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import CartColumn from "./CartColumn";
-import { increment, decrement, remove } from "../../actions/cartAction";
+import { increment, decrement, remove, clearCart,checkout } from "../../actions/cartAction";
+import { loadUser } from "../../actions/authAction"
 
 const CartList = ({
   cart,
@@ -9,7 +10,11 @@ const CartList = ({
   decrement,
   product,
   remove,
-  totalprice
+  totalprice,
+  clearCart,
+  checkout,
+  cartItem,
+  loadUser
 }) => {
   return (
     <Fragment>
@@ -55,15 +60,17 @@ const CartList = ({
                       {item.info.price * item.quantity} USD
                     </div>
                   </div>
+                  
                 )
             )
           : null}
       </div>
       <div className="cartlist-footer">
-      <button className="cart-btn btn" type="button">
-          Check Out
-        </button>
-        <button className="cart-btn btn" type="button">
+      <button onClick={() => checkout(cart)
+        } className="cart-btn btn" type="button">
+                  Check Out
+                </button>
+        <button onClick={() => clearCart()} className="cart-btn btn" type="button">
           Clear Cart
         </button>
         <span>Subtotal : {totalprice}</span>
@@ -78,10 +85,13 @@ const mapStateToProps = state => {
     product: state.productReducer.product,
     totalprice: state.cartReducer.cart.reduce((count, cartItem) => {
       return count + cartItem.info.price * cartItem.quantity;
-    }, 0)
+    }, 0),
+    cartItem: state.cartReducer.cart.map(item => {
+      return item;
+    })
   };
 };
 
-export default connect(mapStateToProps, { increment, decrement, remove })(
+export default connect(mapStateToProps, { increment, decrement, remove, clearCart, checkout,loadUser })(
   CartList
 );
