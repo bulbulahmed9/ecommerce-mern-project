@@ -157,7 +157,11 @@ legend {
   color: salmon;
   font-weight: 700;
 }
+/* cart */
 
+.remove{
+  color: rgb(255,0,0);
+}
 /* quantity */
 
 .quantity{
@@ -170,6 +174,18 @@ legend {
   margin-top: 70px;
 }
 
+.cartlist-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.cart-btn{
+  margin-top: 10px;
+}
+.cart-btn:hover{
+  color: #fff;
+}
 
 /* Footer */
 
@@ -296,7 +312,7 @@ legend {
 }
 
 .spinner{
-  height: 200px;
+  height: 190px;
   width: 250px;
   margin: 200px 200px;
 }
