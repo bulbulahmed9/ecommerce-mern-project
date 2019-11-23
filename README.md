@@ -1,4 +1,4 @@
 # ecommerce-mern-project
 Curenttly in Progress
 
-<img src="githubImg/img1.png" style="width: 500px;" />
+<img src="githubImg/img1.png" style="width: 200;" />
