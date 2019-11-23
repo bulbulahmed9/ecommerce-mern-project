@@ -1,6 +1,7 @@
 import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { getProduct } from "../actions/productAction";
+import spinner from '../img/spinner.jpg'
 
 import uuid from "uuid";
 
@@ -14,7 +15,7 @@ const ProductList = ({ getProduct, products, loading }) => {
   return (
     <Fragment>
       {loading ? (
-        <div>loading</div>
+        <div className="spinner-box"><img className="spinner" src={spinner} alt="loading..." /></div>
       ) : (
         <Fragment>
           <div className="container">

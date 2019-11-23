@@ -77,8 +77,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         </fieldset>
         <button type="submit">Sign Up</button>
       </form>
-      <p>
-        Already have an account ? <Link to="/login">Log In</Link>
+      <p className="reg-footer">
+        Already have an account ? <Link to="/login"> Log In</Link>
       </p>
     </Fragment>
   );

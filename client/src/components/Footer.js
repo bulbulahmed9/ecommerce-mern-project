@@ -18,15 +18,15 @@ const Footer = () => {
               <div className="col-md-4 text-center">
                 <h3>Share with love</h3>
                 <div className="icon">
-                  <Link>
+                  <a href="https://www.facebook.com/bulbulahmed.tk" target="_blank">
                     <i className="fab fa-facebook-f"></i>
-                  </Link>
-                  <Link>
+                  </a>
+                  <a href="https://www.linkedin.com/in/md-bulbul-ahmed-7b2496169/" target="_blank">
                     <i className="fab fa-linkedin-in"></i>
-                  </Link>
-                  <Link>
-                    <i className="fab fa-twitter"></i>
-                  </Link>
+                  </a>
+                  <a href="https://github.com/bulbulahmed9" target="_blank">
+                  <i class="fab fa-github"></i>
+                  </a>
                 </div>
               </div>
               <div className="col-md-4 text-center">

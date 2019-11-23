@@ -29,8 +29,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1>Login</h1>
-      <form onSubmit={e => onSubmit(e)}>
+      <form className="form" onSubmit={e => onSubmit(e)}>
         <h3>Log In Here</h3>
           <Alert />
         <fieldset>
@@ -52,7 +51,7 @@ const Login = ({ login, isAuthenticated }) => {
         </fieldset>
         <button type="submit">Log in</button>
       </form>
-      <p>
+      <p className="login-footer">
           Don't have an account ? <Link to="/register">Register Here</Link>
       </p>
     </Fragment>

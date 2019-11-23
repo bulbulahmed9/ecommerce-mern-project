@@ -23,6 +23,9 @@ form {
   background: #f4f7f8;
   border-radius: 8px;
 }
+.form{
+  margin-top: 80px;
+}
 
 h3 {
   margin: 0 0 30px 0;
@@ -258,4 +261,42 @@ legend {
 .footer .f-bottom .author{
   font-family: "Permanent Marker", cursive;
   font-size: 16px;
+}
+
+
+/* Login */
+
+.login-footer,.reg-footer{
+  display: flex;
+  justify-content: center;
+}
+
+/* details */
+.details-btn:hover{
+  color: #fff;
+}
+.details-warning{
+  padding: 100px 50px;
+}
+.details-warning .btn{
+  margin-top: 20px;
+}
+
+/* profile */
+
+.profile-card{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.spinner-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner{
+  height: 200px;
+  width: 250px;
+  margin: 200px 200px;
 }

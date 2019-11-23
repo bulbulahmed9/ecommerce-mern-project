@@ -25,11 +25,13 @@ const details = ({ detailsProduct, addToCart }) => {
       <p className="card-text"> Battery : {detailsProduct.info.batery}</p>
       <p className="card-text"> Color : {detailsProduct.info.color}</p>
       <p className="card-text"> Price : {detailsProduct.info.price} USD</p>
-                  <Link to="/">Go Back</Link>
-                  <button onClick={() => addToCart(detailsProduct)}>Add to Card</button>
+                  <Link className="details-btn btn" to="/">Go Back</Link>
+                  <button className="details-btn btn" onClick={() => addToCart(detailsProduct)}>Add to Card</button>
                 </div>
               </div> : 
-              <div>Please Select Which product you want to see Details</div>
+              <div className="details-warning">Please Select Which product you want to see Details <br/>
+              <Link className="details-btn btn" to="/">Go Back</Link>
+              </div>
       }
     </div>
   );
