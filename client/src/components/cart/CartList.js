@@ -14,7 +14,8 @@ const CartList = ({
   clearCart,
   checkout,
   cartItem,
-  loadUser
+  loadUser,
+  isAuthenticated
 }) => {
   return (
     <Fragment>
@@ -66,10 +67,12 @@ const CartList = ({
           : null}
       </div>
       <div className="cartlist-footer">
-      <button onClick={() => checkout(cart)
+      {
+        isAuthenticated ? <button onClick={() => checkout(cart)
         } className="cart-btn btn" type="button">
                   Check Out
-                </button>
+                </button> : <span className="mx-1">Please log in for Check Out</span>
+      }
         <button onClick={() => clearCart()} className="cart-btn btn" type="button">
           Clear Cart
         </button>
@@ -82,6 +85,7 @@ const CartList = ({
 const mapStateToProps = state => {
   return {
     cart: state.cartReducer.cart,
+    isAuthenticated: state.authReducer.isAuthenticated,
     product: state.productReducer.product,
     totalprice: state.cartReducer.cart.reduce((count, cartItem) => {
       return count + cartItem.info.price * cartItem.quantity;
