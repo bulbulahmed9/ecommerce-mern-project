@@ -1,8 +1,17 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import CartColumn from "./CartColumn";
-import { increment, decrement, remove, clearCart,checkout } from "../../actions/cartAction";
-import { loadUser } from "../../actions/authAction"
+import {
+  increment,
+  decrement,
+  remove,
+  clearCart,
+  checkout
+} from "../../actions/cartAction";
+import { loadUser } from "../../actions/authAction";
+import { setAlert } from "../../actions/alertAction";
+
+import Alert from '../Alert'
 
 const CartList = ({
   cart,
@@ -15,10 +24,11 @@ const CartList = ({
   checkout,
   cartItem,
   loadUser,
-  isAuthenticated
+  isAuthenticated,
 }) => {
   return (
     <Fragment>
+      
       {cart.length > 0 && <CartColumn />}
       <div className="container-fluid">
         {cart.length > 0
@@ -61,19 +71,30 @@ const CartList = ({
                       {item.info.price * item.quantity} USD
                     </div>
                   </div>
-                  
                 )
             )
           : null}
       </div>
       <div className="cartlist-footer">
-      {
-        isAuthenticated ? <button onClick={() => checkout(cart)
-        } className="cart-btn btn" type="button">
-                  Check Out
-                </button> : <span className="mx-1">Please log in for Check Out</span>
-      }
-        <button onClick={() => clearCart()} className="cart-btn btn" type="button">
+        {isAuthenticated ? (
+          <button
+            onClick={() => {
+              checkout(cart);
+              alert("Order Successfully Processed")
+            }}
+            className="cart-btn btn"
+            type="button"
+          >
+            Check Out
+          </button>
+        ) : (
+          <span className="mx-1">Please log in for Check Out</span>
+        )}
+        <button
+          onClick={() => clearCart()}
+          className="cart-btn btn"
+          type="button"
+        >
           Clear Cart
         </button>
         <span>Subtotal : {totalprice}</span>
@@ -96,6 +117,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { increment, decrement, remove, clearCart, checkout,loadUser })(
-  CartList
-);
+export default connect(mapStateToProps, {
+  increment,
+  decrement,
+  remove,
+  clearCart,
+  checkout,
+  loadUser,
+  setAlert
+})(CartList);

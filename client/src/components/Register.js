@@ -25,6 +25,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
+    if(name == ""){
+      setAlert("Please Enter Your name", "danger")
+    }
+    if(email == ""){
+      setAlert("Please Enter Your Email", "danger")
+    }
+    if(password == ""){
+      setAlert("Please Enter Your Password", "danger")
+    }
     if(password2 == ""){
       setAlert("Please enter confirm password", "danger")
     }
@@ -46,6 +55,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           <Alert />
         <fieldset>
           <legend>Form basic info</legend>
+          {/* {  !name && <span>Please Enter Your name</span> } */}
           <input
             type="text"
             placeholder="Name"
@@ -53,6 +63,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={name}
             onChange={e => onChange(e)}
           /> <br />
+          {/* { !email && <span>Please Enter Your Email</span> } */}
           <input
             type="email"
             placeholder="Email"
@@ -60,6 +71,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={email}
             onChange={e => onChange(e)}
           /> <br />
+          {/* { !password && <span>Please Enter Your Password</span> } */}
           <input
             type="password"
             placeholder="password"
@@ -67,6 +79,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={password}
             onChange={e => onChange(e)}
           /> <br />
+          {/* { !password2 && <span>Please Enter Confirm Password</span> } */}
           <input
             type="password"
             placeholder="Confirm Password"
