@@ -4,7 +4,7 @@ const db = config.get("mongoURI");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(db, {
+    await mongoose.connect(`mongodb+srv://${process.env.dbUsername}:${process.env.dbPassword}@cluster0-ed8wo.mongodb.net/test?retryWrites=true&w=majority`, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
