@@ -1,6 +1,11 @@
 # ecommerce-mern-project
 <h2>See live demo at</h2> <h2> https://sleepy-crag-19937.herokuapp.com/ </h2>
 
+Technology I have used :
+1. React JS
+2. Node JS
+3. MongoDB/mongoose
+
 
 <img src="githubImg/img1.PNG" />
 
