@@ -25,4 +25,4 @@ How to run this code :
 5. Open command line in the cloned folder, To install dependencies, for front end go cd ecommerce/client and run npm install,
   for back end cd ecommerce and run npm install
 6. To run the application for development, go to your root folder of the project and run- npm run dev
-7. Open localhost:3000 in the browser
+7. Open localhost:3000 in the browser.
