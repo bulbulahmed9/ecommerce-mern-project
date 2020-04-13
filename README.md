@@ -3,6 +3,7 @@
 
 Technology I have used :
 1. React JS
+2. Redux
 2. Node JS
 3. MongoDB/mongoose
 
